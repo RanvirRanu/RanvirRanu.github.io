@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hyperfixation Corner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="header"></div>
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            });
+    </script>
+
+    <section class="projects">
+        <h1>My collection of random stuff I do sometimes</h1>
+        <h2>Sewing</h2>
+        <p> I picked up sewing when I got my Eng Boilersuit in 2nd year, since then 
+            I've gotten a machine and started learning more about clothing design and construction!</p><br
+        <div class="project-grid">
+            <div class="card">
+                <h3>Pants !</h3>
+                <p>My first project using a sewing machine!</p>
+                <a href="pants.html">View Project</a>
+            </div>
+            <div class="card">
+                <h3>My Boilersuit</h3>
+                <p>A Canadian Engineering Tradition! My sisyphian project with hand sewing,</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="card">
+                <h3>Embroidery</h3>
+                <p>I don't own an embroidery machine yet, but i've been experimenting with hand and free-motion embroidery.</p>
+                <a href="#">View Project</a>
+        </div>
+
+        <h2>Music</h2>
+        <p> I mainly play the drums and some Alto Saxophone, but i've been picking up the guitar, djing, and production skills.
+            I'm usually scared to post anything i've made, but hopefully this forces me to locking in.</p>
+            <a href="https://open.spotify.com/user/fiblg47s3le1hsse1fmx6ohzj?si=55f9dc5ae83d492d" target="_blank">In the meantime, look at my spotify as a placeholder lol</a>
+
+        <h2>Jewelry</h2>
+        <p> I got into chainmail for some reason, my fingers hurt and im like 100 rings in, but eventually something will be here</p>
+        
+    </section>
+
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
+
+</body>
+</html>
