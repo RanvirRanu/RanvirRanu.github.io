@@ -8,17 +8,14 @@
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <h1 class="logo">Ranvir Ranu</h1>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="schoolProjects.html">School Projects</a></li>
-                <li><a href="personalProjects.html">Personal Projects</a></li>
-                <li><a href="#">The Hyperfixation Corner</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header"></div>
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            });
+    </script>
 
     <section class="hero">
         <h2>About me!</h2>
@@ -35,10 +32,11 @@
                 <p>I'm studying Software Engineering at the University of Western Ontario, These are various projects I've worked on for it</p>
             </div></a>
 
+            <a href="personalProjects.html">
             <div class="card">
                 <h3>Personal Projects</h3>
                 <p>Any Engineering focused projects i've worked on</p>
-            </div>
+            </div></a>
 
             <div class="card">
                 <h3>The hyperfixation corner</h3>
