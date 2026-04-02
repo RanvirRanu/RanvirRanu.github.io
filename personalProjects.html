@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Projects</title>
+    <title>Personal Projects</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,24 +17,43 @@
             });
     </script>
 
+
+            <div class="project-grid">
+
+                <div class="card">
+                    <h3>A Terrible UI</h3>
+                    <p>Made for a "Human Computer Interface Design" class... Have fun</p>
+                    <a href="badui.html">View Project</a>
+                </div>
+
+            </div>
+        </section>
+
     <section class="projects">
         <h1>Personal Projects</h1>
         <h2>Sewing</h2>
         <p> I've been pickup up sewing since I got my Eng Boilersuit in 2nd year, since then 
             I've gotten a machine and started learning more about clothing design and construction.</p>
-        
-        <h3>Pants !</h3>>
-        <p> My first project on a machine was a pair of pants! I designed the pattern in SolidWorks and sewed from scratch. 
-            You can definatly tell it was my first time, but it was a very insighful and fun project!</p>
-        <img src="pictures/IMG_6355.jpeg" alt="sewing" class="project-image">
-        <img src="pictures/IMG_6356.jpeg" alt="Fitcheck" class="project-image">
+        <div class="project-grid">
+            <div class="card">
+                <h3>Pants</h3>
+                <p>My first project using a sewing machine!</p>
+                <a href="pants.html">View Project</a>
+            </div>
+        </div>
 
         
     </section>
 
-    <footer>
-        <p>© 2026 Ranvir | Portfolio Website</p>
-    </footer>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script>
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+        document.getElementById('footer-placeholder').innerHTML = data;
+        });
+    </script>
 
 </body>
 </html>
