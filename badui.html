@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terrible Interface</title>
+    <style>
+        body {
+            font-family: Comic Sans MS;
+            background-color: #fffb00;
+            text-align: center;
+        }
+
+        #volumeBox {
+            margin: 20px;
+            padding: 20px;
+            border: 3px dashed red;
+        }
+
+        #helpBtn {
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            padding: 10px;
+            background-color: pink;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+
+        select {
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>cool awesome website</h1>
+
+    <div id="volumeBox">
+        <h2>Volume Control</h2>
+        <button id="volBtn">Hold to Increase Volume</button>
+        <p>Volume: <span id="volume">0</span></p>
+    </div>
+
+    <div>
+        <h2>Enter Your Email</h2>
+        <p>or dont <br> i dont care</p>
+        <div id="emailContainer"></div>
+        <p>Your Email: <span id="emailOutput"></span></p>
+    </div>
+
+    <button id="helpBtn">Help</button>
+
+    <script>
+        // Volume Button (hold to increase, drains when not holding)
+        let volume = 0;
+        let holding = false;
+
+        document.getElementById("volBtn").onmousedown = () => holding = true;
+        document.getElementById("volBtn").onmouseup = () => holding = false;
+
+        setInterval(() => {
+            if (holding) {
+                volume += 2;
+                if (volume > 100) volume = 100;
+            } else {
+                volume -= 1;
+                if (volume < 0) volume = 0;
+            }
+            document.getElementById("volume").innerText = volume;
+        }, 100);
+
+        // Email Dropdown Letters
+        const emailContainer = document.getElementById("emailContainer");
+        const emailOutput = document.getElementById("emailOutput");
+
+        const chars = "abcdefghijklmnopqrstuvwxyz0123456789@.";
+        for (let i = 0; i < 12; i++) {
+            let select = document.createElement("select");
+
+            for (let c of chars) {
+                let option = document.createElement("option");
+                option.value = c;
+                option.text = c;
+                select.appendChild(option);
+            }
+
+            select.onchange = updateEmail;
+            emailContainer.appendChild(select);
+        }
+
+        function updateEmail() {
+            let email = "";
+            let selects = document.querySelectorAll("select");
+            selects.forEach(s => email += s.value);
+            emailOutput.innerText = email;
+        }
+
+        // Shy help button
+        const helpBtn = document.getElementById("helpBtn");
+
+        helpBtn.addEventListener("mouseover", () => {
+            let x = Math.random() * window.innerWidth;
+            let y = Math.random() * window.innerHeight;
+            helpBtn.style.left = x + "px";
+            helpBtn.style.top = y + "px";
+        });
+    </script>
+</body>
+</html>
